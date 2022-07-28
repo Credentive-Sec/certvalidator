@@ -167,6 +167,7 @@ class ValidationPath():
         :return:
             The current ValidationPath object, for chaining
         """
+        # TODO: This function does not verify that you are adding a cert issued by the last cert in the path. Should it?
 
         if not isinstance(cert, x509.Certificate):
             if not isinstance(cert, byte_cls):
@@ -200,7 +201,7 @@ class ValidationPath():
         :return:
             The current ValidationPath object, for chaining
         """
-
+        # TODO: This function does not verify that you are adding a cert representing the issuer of the next cert in the path. Should it?
         if not isinstance(cert, x509.Certificate):
             if not isinstance(cert, byte_cls):
                 raise TypeError(pretty_message(

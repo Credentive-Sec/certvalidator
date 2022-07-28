@@ -10,3 +10,4 @@ tests/output/
 .DS_Store
 .python-version
 coverage.xml
+.vscode
