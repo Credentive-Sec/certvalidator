@@ -1,7 +1,9 @@
 # coding: utf-8
 from __future__ import unicode_literals, division, absolute_import, print_function
+from asyncio.proactor_events import _ProactorBasePipeTransport
 
 from asn1crypto import x509, crl
+from importlib_metadata import NullFinder
 from oscrypto import asymmetric
 import oscrypto.errors
 
@@ -125,10 +127,14 @@ def validate_name(validation_context, path):
             # Cut the DN in the cert to the same length as the RDN in the 
             # permitted subtree, then compare for equality
             #
+            cert_subtree = cert.subject
+            if path_permitted_subtrees != None:
+                while len(cert_subtree) > len(path_permitted_subtrees):
+                    
+                    pass
 
         # Steps 2 d
         if cert.certificate_policies_value and valid_policy_tree is not None:
-
             cert_any_policy = None
             cert_policy_identifiers = set()
 
